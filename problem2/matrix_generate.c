@@ -446,7 +446,7 @@ int main() {
 	int *index_c;//对顶点按颜色种类排序，定义新的编号
 	int *num_c_point;//记录相同颜色的顶点个数
 	int max_num_c_point = 0;//记录对于不同颜色对应的最大顶点数
-	int min_num_c_point = 1000;//记录对于不同颜色对应的最小顶点数
+	int min_num_c_point = 100000;//记录对于不同颜色对应的最小顶点数
 
 	num_c_point = (int *)calloc(sizeof(int), L);
 	index_c = (int *)calloc(sizeof(int), var);
