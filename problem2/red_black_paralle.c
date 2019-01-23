@@ -245,9 +245,9 @@ int main(int argc,char *argv[])
 
     double wall_time, max_wall_time;
 	wall_time = wall_time_end - wall_time_first;
-	MPI_Reduce(&wall_time, &max_wall_time, 1, MPI_DOUBLE, MPI_MAX, 0, mycomm);
+	MPI_Reduce(&wall_time, &max_wall_time, 1, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
     if(rank==0){
-        printf("max wall time: %s %d %.12lf\n", processor_name, myrank, wall_time_end - wall_time_first);
+        printf("max wall time:%d %.12lf\n",rank, wall_time_end - wall_time_first);
     }
 
     MPI_Finalize();

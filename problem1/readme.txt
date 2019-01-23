@@ -1,40 +1,41 @@
-²¢ÐÐ¼ÆËã¾ØÕó³ËÏòÁ¿
+// -*- encoding: utf8 -*-
+å¹¶è¡Œè®¡ç®—çŸ©é˜µä¹˜å‘é‡
  \f[Ax=b\f]
- ´óÌåË¼ÏëÎª½«¸ø¶¨µÄ¾ØÕó°´ÁÐÑ­»·»®·Ö£¬ÔÙ½«ÏòÁ¿¶ÔÓ¦»®·Ö£¬×îºó¹éÔ¼ÇóºÍµ½£°½ø³Ì£¬Êä³öµ½½á¹ûµ½ÎÄ¼þ¡£
+ å¤§ä½“æ€æƒ³ä¸ºå°†ç»™å®šçš„çŸ©é˜µæŒ‰åˆ—å¾ªçŽ¯åˆ’åˆ†ï¼Œå†å°†å‘é‡å¯¹åº”åˆ’åˆ†ï¼Œæœ€åŽå½’çº¦æ±‚å’Œåˆ°ï¼è¿›ç¨‹ï¼Œè¾“å‡ºåˆ°ç»“æžœåˆ°æ–‡ä»¶ã€‚
 
- ¸Ã³ÌÐò°üÊµÏÖÁ÷³ÌÎª£º
- £±£®ÏÈËæ»úÉú³É¸ø¶¨Î¬ÊýµÄ¾ØÕóºÍÏòÁ¿£»
- £²£®ÔÚ½«¾ØÕóºÍÏòÁ¿°´¸ø¶¨µÄ½ø³ÌÊý½øÐÐ»®·Ö£»
- £³£®ÊµÏÖ²¢ÐÐ´®ÐÐµÄ¾ØÕó³ËÒÔÏòÁ¿£»
+ è¯¥ç¨‹åºåŒ…å®žçŽ°æµç¨‹ä¸ºï¼š
+ ï¼‘ï¼Žå…ˆéšæœºç”Ÿæˆç»™å®šç»´æ•°çš„çŸ©é˜µå’Œå‘é‡ï¼›
+ ï¼’ï¼Žåœ¨å°†çŸ©é˜µå’Œå‘é‡æŒ‰ç»™å®šçš„è¿›ç¨‹æ•°è¿›è¡Œåˆ’åˆ†ï¼›
+ ï¼“ï¼Žå®žçŽ°å¹¶è¡Œä¸²è¡Œçš„çŸ©é˜µä¹˜ä»¥å‘é‡ï¼›
 
- ÎÄ¼þËµÃ÷£º
-matrix_generate.c ¡¡Ëæ»úÉú³É¾ØÕóºÍÏòÁ¿µÄº¯Êý
-matrix_disove.c ¡¡¡¡°´¸ø¶¨µÄ½ø³ÌÊý¶Ô¾ØÕóºÍÏòÁ¿½øÐÐ»®·Ö
-C_problem1.c¡¡¡¡¡¡¡¡¾ØÕó³ËÒÔÏòÁ¿µÄ´®ÐÐ³ÌÐò
-matrix_time_vector.c¡¡¾ØÕó³ËÒÔÏòÁ¿µÄ²¢ÐÐ³ÌÐò
+ æ–‡ä»¶è¯´æ˜Žï¼š
+matrix_generate.c ã€€éšæœºç”ŸæˆçŸ©é˜µå’Œå‘é‡çš„å‡½æ•°
+matrix_disove.c ã€€ã€€æŒ‰ç»™å®šçš„è¿›ç¨‹æ•°å¯¹çŸ©é˜µå’Œå‘é‡è¿›è¡Œåˆ’åˆ†
+C_problem1.cã€€ã€€ã€€ã€€çŸ©é˜µä¹˜ä»¥å‘é‡çš„ä¸²è¡Œç¨‹åº
+matrix_time_vector.cã€€çŸ©é˜µä¹˜ä»¥å‘é‡çš„å¹¶è¡Œç¨‹åº
 
- ³ÌÐò±àÒë
+ ç¨‹åºç¼–è¯‘
 gcc -o  mg matrix_generate.c 
 gcc -o md matrix_disove.c 
 gcc -o cp1 C_problem1.c
 mpicc -o  mtv matrix_time_vector.c
 
-ÒÔ£¸¸ö½ø³Ì£¬1000Î¬µÄ¾ØÕóÎªÀý¸ø³öÔËÐÐÊ¾Àý
-Éú³É¾ØÕóºÍÏòÁ¿
+ä»¥ï¼˜ä¸ªè¿›ç¨‹ï¼Œ1000ç»´çš„çŸ©é˜µä¸ºä¾‹ç»™å‡ºè¿è¡Œç¤ºä¾‹
+ç”ŸæˆçŸ©é˜µå’Œå‘é‡
 ./mg
 1000
-#·Ö¿éÏµÊý¾ØÕó
+#åˆ†å—ç³»æ•°çŸ©é˜µ
 ./md
 1  8
 A.txt
-#·Ö¿éÁÐÏòÁ¿
+#åˆ†å—åˆ—å‘é‡
 /md
 8 1
 x.txt
-££²¢ÐÐ³ÌÐòÔËÐÐ
+ï¼ƒå¹¶è¡Œç¨‹åºè¿è¡Œ
 mpirun -np 8 mtv
-#´®ÐÐ³ÌÐòÔËÐÐ
+#ä¸²è¡Œç¨‹åºè¿è¡Œ
 ./cp1
 
-×¢£ºÆäÖÐµÄA.txt x.txtÊÇÔÚ³ÌÐòÖÐ¸ø¶¨µÄÎÄ¼þÃû£¬ÈôÒªÐÞ¸ÄÔÚmatrix_generate.cÎÄ¼þÖÐ£»
-¡¡¡¡´®ÐÐºÍ²¢ÐÐ³ÌÐòµÄÇ½ÉÏÊ±¼ä¶¼½«´òÓ¡µ½ÆÁÄ»¡£
+æ³¨ï¼šå…¶ä¸­çš„A.txt x.txtæ˜¯åœ¨ç¨‹åºä¸­ç»™å®šçš„æ–‡ä»¶åï¼Œè‹¥è¦ä¿®æ”¹åœ¨matrix_generate.cæ–‡ä»¶ä¸­ï¼›
+ã€€ã€€ä¸²è¡Œå’Œå¹¶è¡Œç¨‹åºçš„å¢™ä¸Šæ—¶é—´éƒ½å°†æ‰“å°åˆ°å±å¹•ã€‚

@@ -1,22 +1,23 @@
+// -*- encoding: utf8 -*-
 /**
 *@file C_problem1.c
 *@author lsa
 *@date 20191/13
-*@brif ¶ÔÓÚ¾ØÕó³ËÒÔÏòÁ¿µÄµÄ´®ĞĞ¼ÆËã³ÌĞò
-´ÓÎÄ¼şÖĞ¶ÁÈ¡Êı¾İ²¢¼ÆËã³ö½á¹û£¬½«ÆäÊä³öµ½ÎÄ¼şÖĞ
+*@brif å¯¹äºçŸ©é˜µä¹˜ä»¥å‘é‡çš„çš„ä¸²è¡Œè®¡ç®—ç¨‹åº
+ä»æ–‡ä»¶ä¸­è¯»å–æ•°æ®å¹¶è®¡ç®—å‡ºç»“æœï¼Œå°†å…¶è¾“å‡ºåˆ°æ–‡ä»¶ä¸­
 */
 
 #include<stdlib.h>
 #include<stdio.h>
-//½ö½öÕë¶ÔLinux²Ù×÷ÏµÍ³£¬ÓĞÕâ¸öÍ·ÎÄ¼ş
+//ä»…ä»…é’ˆå¯¹Linuxæ“ä½œç³»ç»Ÿï¼Œæœ‰è¿™ä¸ªå¤´æ–‡ä»¶
 #include<sys/time.h>
 #include<sys/resource.h>
 
 /**
- * @brief »ñÈ¡¼ÆËã¹ı³ÌÖĞµÄÇ½ÉÏÊ±¼äºÍcpuÊ±¼ä
+ * @brief è·å–è®¡ç®—è¿‡ç¨‹ä¸­çš„å¢™ä¸Šæ—¶é—´å’Œcpuæ—¶é—´
  * 
- * @param cpu ÎªÒ»¸ödouble ĞÍÖ¸Õë£¬¼ÇÂ¼cpuÊ±¼ä
- * @param wall ÎªÒ»¸ödouble ĞÍÖ¸Õë£¬¼ÇÂ¼Ç½ÉÏÊ±¼ä¡¡
+ * @param cpu ä¸ºä¸€ä¸ªdouble å‹æŒ‡é’ˆï¼Œè®°å½•cpuæ—¶é—´
+ * @param wall ä¸ºä¸€ä¸ªdouble å‹æŒ‡é’ˆï¼Œè®°å½•å¢™ä¸Šæ—¶é—´ã€€
  */
 void gettime(double *cpu, double *wall)
 {
@@ -35,12 +36,12 @@ void gettime(double *cpu, double *wall)
 int main()
 {
 	FILE *fp_A, *fp_x, *fp_b;
-	int m_A, n_A,n_x,m_x;//Î¬Êı¼ÇÂ¼
+	int m_A, n_A,n_x,m_x;//ç»´æ•°è®°å½•
 	double *A, *x, *b;
 	double cpu0, cpu1, waLL0, waLL1;
-	int i, j,k;//Ñ­»·±äÁ¿
+	int i, j,k;//å¾ªç¯å˜é‡
 
-	//¶ÁÈ¡ÏµÊı¾ØÕó
+	//è¯»å–ç³»æ•°çŸ©é˜µ
 	fp_A = fopen("A.txt", "r+");
 	if (fp_A == NULL)return -1;
 	fscanf(fp_A, "%d%d\n", &m_A, &n_A);
@@ -52,7 +53,7 @@ int main()
 	}
 	fclose(fp_A);
 
-	//¶ÁÈ¡ÏòÁ¿
+	//è¯»å–å‘é‡
 	fp_x = fopen("x.txt", "r+");
 	if (fp_x == NULL)return -1;
 	fscanf(fp_x, "%d%d\n", &m_x, &n_x);
@@ -69,7 +70,7 @@ int main()
 		return -1;
 	}
 
-	//¼ÆËã¾ØÕó³ËÒÔÏòÁ¿
+	//è®¡ç®—çŸ©é˜µä¹˜ä»¥å‘é‡
 	b = (double *)calloc(m_A*n_x, sizeof(double));
 	gettime(&cpu0, &waLL0);
 	for (i = 0; i < m_A; i++) {
@@ -82,7 +83,7 @@ int main()
 	}
 	gettime(&cpu1, &waLL1);
 
-	//½«½á¹ûÊä³öµ½ÎÄ¼ş
+	//å°†ç»“æœè¾“å‡ºåˆ°æ–‡ä»¶
 	fp_b = fopen("b_c.txt", "w+");
 	if (fp_b == NULL)return -1;
 	//fprintf(fp_b, "%d  %d\n", m_A, n_x);

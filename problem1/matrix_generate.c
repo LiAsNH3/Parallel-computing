@@ -1,8 +1,10 @@
-/*£ª
+// -*- encoding: utf8 -*-
+
+/**
 *@file matrix_generate.c
 @date  2019/1/13
 @author lsa
-@brif ÕâÊÇÒ»¸öÓÃÀ´Éú³ÉËæ»ú¾ØÕóºÍÒ»¸öÁĞÏòÁ¿µÄ³ÌĞò
+@brif è¿™æ˜¯ä¸€ä¸ªç”¨æ¥ç”ŸæˆéšæœºçŸ©é˜µå’Œä¸€ä¸ªåˆ—å‘é‡çš„ç¨‹åº
 */
 
 #include <stdlib.h>
@@ -14,11 +16,11 @@ int main()
 {
 	int n = 0, i, j;
 	FILE *fp1, *fp2;
-	printf("please enter the size of Matrix:\n");//ÊäÈëÏµÊı¾ØÕóµÄ´óĞ¡
+	printf("please enter the size of Matrix:\n");//è¾“å…¥ç³»æ•°çŸ©é˜µçš„å¤§å°
 	scanf("%d", &n);
 
 
-	//Ëæ»úÉú³ÉÏµÊı¾ØÕó£¬²¢Êä³öµ½ÎÄ¼ş
+	//éšæœºç”Ÿæˆç³»æ•°çŸ©é˜µï¼Œå¹¶è¾“å‡ºåˆ°æ–‡ä»¶
 	fp1 = fopen("A.txt", "w+");
 	if (fp1 == NULL)return -1;
 	fprintf(fp1, "%d  %d\n", n, n);
@@ -30,7 +32,7 @@ int main()
 	}
 	fclose(fp1);
 
-	//Ëæ»úÉú³ÉÒ»¸öÁĞÏòÁ¿²¢Êä³öµ½ÎÄ¼ş
+	//éšæœºç”Ÿæˆä¸€ä¸ªåˆ—å‘é‡å¹¶è¾“å‡ºåˆ°æ–‡ä»¶
 	fp2 = fopen("x.txt", "w+");
 	if (fp2 == NULL)return -1;
 	fprintf(fp2, "%d  %d\n", n, 1);

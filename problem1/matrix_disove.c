@@ -1,7 +1,8 @@
+// -*- encoding: utf8 -*-
 /**
 * @file resolve_matrix.c
 * @author lsa
-* @brief ½«¾ØÕó°´Ëù¸øµÄ½ø³ÌÒªÇóÑ­»·»®·Ö´æ´¢
+* @brief å°†çŸ©é˜µæŒ‰æ‰€ç»™çš„è¿›ç¨‹è¦æ±‚å¾ªç¯åˆ’åˆ†å­˜å‚¨
 * @version 0.1
 * @date 2018-12-16
 *
@@ -12,18 +13,18 @@
 
 int main(int argc, char *argv[])
 {
-	int i, j,k,s;//Ñ­»·±äÁ¿
-	int pm, pn;//½ø³ÌÊı
-	int  m, n;//±»»®·Ö¾ØÕóµÄÎ¬Êı
+	int i, j,k,s;//å¾ªç¯å˜é‡
+	int pm, pn;//è¿›ç¨‹æ•°
+	int  m, n;//è¢«åˆ’åˆ†çŸ©é˜µçš„ç»´æ•°
 	double *a;
 	FILE *fp, *fp1;
 	char file_name[15];
 
-	//¶ÁÈ¡³õÊ¼ĞÅÏ¢
+	//è¯»å–åˆå§‹ä¿¡æ¯
 	 printf("please enter the process numbers(row and col):");
 	 scanf("%d%d",&pm,&pn);
 
-	//¶ÁÈ¡Ô­Ê¼¾ØÕó,ÎÄ¼şµÚÒ»ĞĞÎª¾ØÕóµÄÎ¬Êı
+	//è¯»å–åŸå§‹çŸ©é˜µ,æ–‡ä»¶ç¬¬ä¸€è¡Œä¸ºçŸ©é˜µçš„ç»´æ•°
 	 printf("please enter the filename:");
 	 scanf("%s", file_name);
 	fp=fopen(file_name,"r");
@@ -33,12 +34,12 @@ int main(int argc, char *argv[])
 	}
 
 
-	fscanf(fp, "%d%d", &m, &n);//¶ÁÈ¡Î¬Êı
+	fscanf(fp, "%d%d", &m, &n);//è¯»å–ç»´æ•°
 	if (pm>m || pn>n) {
 		printf("erro:number of process >colucms or rows!!!!!!\n");
 		return -1;
 	}
-	//·ÖÅäÄÚ´æ£¬´æ´¢Ô­Ê¼¾ØÕó
+	//åˆ†é…å†…å­˜ï¼Œå­˜å‚¨åŸå§‹çŸ©é˜µ
 	a = (double*)calloc(sizeof(double), m*n);
 	if (a == NULL) {
 		printf("failed!\n");
@@ -52,10 +53,10 @@ int main(int argc, char *argv[])
 	}
 	fclose(fp);
 
-	//Êä³ö·Ö¿é¾ØÕó
+	//è¾“å‡ºåˆ†å—çŸ©é˜µ
 	for (i = 0; i<pm; i++) {
 		for (s = 0; s<pn; s++) {
-			//Ã¿¸ö½ø³ÌµÄÎÄ¼ş,Ñ­»·»®·Ö£¨¾íÁ±»®·Ö£©
+			//æ¯ä¸ªè¿›ç¨‹çš„æ–‡ä»¶,å¾ªç¯åˆ’åˆ†ï¼ˆå·å¸˜åˆ’åˆ†ï¼‰
 			sprintf(file_name + 1, "%d%d%s", i, s, ".txt");
 			fp1 = fopen(file_name, "w+");
 			if (fp1 == NULL) {
@@ -63,7 +64,7 @@ int main(int argc, char *argv[])
 				return -1;
 			}
 
-			//Êä³öµÄ¾ØÕó°üº¬¾Ö²¿Î¬ÊıĞÅÏ¢
+			//è¾“å‡ºçš„çŸ©é˜µåŒ…å«å±€éƒ¨ç»´æ•°ä¿¡æ¯
 			int p_c = 0, p_r = 0;
 			for (j = i; j<m; j += pm, p_c++);
 			for (k = s; k<n; k += pn, p_r++);
