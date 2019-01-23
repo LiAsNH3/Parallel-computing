@@ -29,12 +29,15 @@ int main(int argc,char *argv[])
     double *A_part,*F_part;//当前进程的局部系数矩阵和向量存储内存指针
     double *x_full;//解向量迭代量，与解向量维数一致
     double wall_time_first = 0, wall_time_end = 0;
+  	int namelen;
+    char processor_name[MPI_MAX_PROCESSOR_NAME];
     FILE *fp_A_part,*fp_F_part;
     MPI_Status status;
     MPI_Init(&argc,&argv);//并行进程启动
 
     MPI_Comm_rank(MPI_COMM_WORLD,&rank);//获取当前进程的编号
     MPI_Comm_size(MPI_COMM_WORLD,&p_num);//获取进程的总数
+  	MPI_Get_processor_name(processor_name, &namelen);
 
 /**************每个进程读取对应的系数矩阵******************************/
 
@@ -247,7 +250,11 @@ int main(int argc,char *argv[])
 	wall_time = wall_time_end - wall_time_first;
 	MPI_Reduce(&wall_time, &max_wall_time, 1, MPI_DOUBLE, MPI_MAX, 0, MPI_COMM_WORLD);
     if(rank==0){
+<<<<<<< HEAD
         printf("max wall time:%d %.12lf\n",rank, wall_time_end - wall_time_first);
+=======
+        printf("max wall time: %s %d %.12lf\n", processor_name, rank, wall_time_end - wall_time_first);
+>>>>>>> 22ea05c5ec49e8d67da69dd97e202ef0e8b000da
     }
 
     MPI_Finalize();
